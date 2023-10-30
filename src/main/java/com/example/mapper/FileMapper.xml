@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="FileMapper">
+
+<insert id="addFile" parameterType="FileDTO">
+		insert into tb_file
+		(FILE_NO,SEQ_NO,FILENAME,SAVEFILEPATH,SAVEFILENAME,TB_TYPE)
+		values (
+		TB_FILE_SEQ.NEXTVAL,
+		#{SEQ_NO},
+		#{fileName},
+		#{saveFileName},
+		#{saveFilePath},
+		#{TB_TYPE}
+		)
+</insert>
+
+
+<select id="selFile" resultType="FileDTO" parameterType="int">
+select * from tb_file where SEQ_NO =#{reNo} and TB_TYPE='TB_REVIEW'
+</select>
+</mapper>
+
+
+
+
+
+

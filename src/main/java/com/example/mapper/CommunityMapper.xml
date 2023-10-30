@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CommunityMapper">
+
+	<insert id="commuAdd" parameterType="CommunityDTO">
+		insert into tb_commu
+		(COMMU_NO,USER_NO,USER_ID,COMMU_TITLE,COMMU_SUMMER,COMMU_REGISTRATION)
+		values (
+		TB_COMMU_SEQ.NEXTVAL,
+		#{user_no},
+		#{USER_ID},
+		#{COMMU_TITLE},
+		#{COMMU_SUMMER},
+		SYSDATE
+		)
+	</insert>
+
+
+<select id="commNo" parameterType="int" resultType="int">
+select COMMU_NO from tb_commu where USER_NO=#{user_no}
+</select>
+
+
+<select id="commuList" resultType="CommunityDTO">
+select COMMU_NO,USER_ID,COMMU_TITLE,TO_CHAR(COMMU_REGISTRATION,'YYYY-MM-DD')"COMMU_REGISTRATION"
+ from tb_commu
+</select>
+
+<select id="oneCommu" resultType="CommunityDTO" parameterType="int">
+select COMMU_NO,USER_ID,COMMU_TITLE,COMMU_SUMMER,TO_CHAR(COMMU_REGISTRATION,'YYYY-MM-DD')"COMMU_REGISTRATION"
+ from tb_commu where COMMU_NO= #{COMMU_NO}
+</select>
+</mapper>
+
+
+
+
+
+

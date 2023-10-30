@@ -1,0 +1,23 @@
+--------------------------------------------------------
+--  파일이 생성됨 - 토요일-10월-21-2023   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table TB_FILE
+--------------------------------------------------------
+drop table tb_file;
+  CREATE TABLE "SCOTT"."TB_FILE" 
+   (	"FILE_NO" NUMBER, 
+	"SEQ_NO" NUMBER, 
+	"FILENAME" VARCHAR2(500 BYTE), 
+	"SAVEFILEPATH" VARCHAR2(500 BYTE), 
+	"SAVEFILENAME" VARCHAR2(200 BYTE), 
+	"TB_TYPE" VARCHAR2(20 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+REM INSERTING into SCOTT.TB_FILE
+SET DEFINE OFF;
+
+CREATE SEQUENCE TB_FILE_SEQ; 

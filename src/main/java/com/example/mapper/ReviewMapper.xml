@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ReviewMapper">
+<!-- <insert id="inquireAdd" parameterType="ReviewDTO"> -->
+<!-- 		insert into tb_review -->
+<!-- 		(REVIEW_NO,PRODUCT_CODE,USER_NO,REVIEW_TITLE,REVIEW_CONTENT,REVIEW_REGISTRATION) -->
+<!-- 		values ( -->
+<!-- 		#{REVIEW_NO}, -->
+<!-- 		#{PRODUCT_CODE}, -->
+<!-- 		#{USER_NO}, -->
+<!-- 		#{REVIEW_TITLE}, -->
+<!-- 		#{REVIEW_CONTENT}, -->
+<!-- 		SYSDATE -->
+<!-- 		) -->
+<!-- </insert> -->
+
+<insert id="reviewAdd" parameterType="ReviewDTO">
+		insert into tb_review
+		(REVIEW_NO,USER_NO,USER_ID,REVIEW_TITLE,PRODUCT_CODE,REVIEW_CONTENT,REVIEW_REGISTRATION)
+		values (
+		TB_REVIEW_SEQ.NEXTVAL,
+		#{user_no},
+		#{USER_ID},
+		#{REVIEW_TITLE},
+		#{PRODUCT_CODE},
+		#{REVIEW_CONTENT},
+		SYSDATE
+		)
+</insert>
+
+<select id="selReviewNo" parameterType="HashMap" resultType="int">
+select REVIEW_NO from tb_review where USER_ID=#{user_id} and PRODUCT_CODE=#{pCode}
+</select>
+
+<select id="reviews" resultType="ReviewDTO" parameterType="String">
+select * from tb_review where PRODUCT_CODE =#{gCode}
+<!-- select r.REVIEW_NO, -->
+<!-- r.USER_ID, -->
+<!-- r.PRODUCT_CODE, -->
+<!-- r.REVIEW_CONTENT, -->
+<!-- r.REVIEW_TITLE, -->
+<!-- r.REVIEW_REGISTRATION, -->
+<!-- f.FILE_NO, -->
+<!-- f.SVAEFILEPATH, -->
+<!-- f.SAVEFILENAME -->
+<!-- from tb_review r inner join tb_file f -->
+<!-- on r.REVIEW_NO =f.REVIEW_NO -->
+<!-- where PRODUCT_CODE =#{gCode} -->
+</select>
+
+<select id="selectRe" parameterType="String" resultType="ReviewDTO">
+select * from tb_review where PRODUCT_CODE =#{gCode}
+</select>
+
+</mapper>
+
+
+
+
+

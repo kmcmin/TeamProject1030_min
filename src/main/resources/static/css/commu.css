@@ -1,0 +1,113 @@
+/* 커뮤티티 테두리 */
+.commumenu{
+	text-align: center;
+/* 	border: 1px solid Gainsboro; */
+/* 	border-radius: 16px; */
+/* 	margin-right: 150px; */
+
+/* 	margin-left: 150px; */
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.commucss{
+	padding: 5px 280px;
+}
+.commuTi{
+text-align: left;
+padding: 35px 25px 18px 45px;
+}
+.commumenu md-8 img{
+	display: flex;
+	
+}
+.commuT2{
+	font-size: 28px;
+	font-weight: bold;
+    margin-bottom: 15px;
+}
+hr {
+    height:0px;
+    border: 1px solid Gainsboro;
+    margin-bottom: 20px;
+    margin: 5px auto;
+    width: 800px; 
+}
+p{
+	font-size: 20px;
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+.commentcss{
+   padding: 8px 0px 8px 15px;
+   background-color: #f5f6fa;
+   border-radius: 16px;
+   text-align: left;
+   font-size: 15px;
+   width : 700px;
+   margin-top: 10px;
+   margin-bottom: 7px;
+}
+.commentbtcss{
+	padding: 7px 11px 6px;
+    border-radius: 15px;
+    background-color: #6AA338;
+    color: #fff;
+    line-height: 17px;
+}
+/*댓글*/
+.oneteply1{
+ padding: 10px 15px 0px 15px;
+ 
+}
+table {
+    border-collapse: collapse; /* 테두리를 합쳐서 표시 */
+    width: 100%; /* 테이블을 가득 채우도록 설정 (옵션) */
+}
+
+table, th, td {
+    border: none; /* 테두리 없음 */
+    text-align: left; /* 텍스트 왼쪽 정렬 (옵션) */
+    padding: 8px; /* 셀 안의 여백 (옵션) */
+}
+.replycss{
+	padding: 2px 10px 0 5px;
+	margin-bottom: 5px;
+	border: none;
+	
+}
+.a123{
+	height:0px;
+    border: 1px solid Gainsboro;
+    margin-bottom: 20px;
+    margin: 5px auto;
+    width: 740px; 
+    transform: scaleY(0.1);
+	
+}
+.butten{
+	margin-top:3px;
+	
+}
+.commentsUser{
+	margin-bottom: 3px;
+	margin-top: 10px;
+	font-weight: bold;
+}
+.comment_form{
+		padding: 6px 24px 5px 20px;
+}
+.replyUser{
+	margin-bottom: 3px;
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+.replybutt{
+   padding: 8px 0px 8px 15px;
+   background-color: #f5f6fa;
+   border-radius: 16px;
+   text-align: left;
+   font-size: 15px;
+   margin-top: 10px;
+   margin-bottom: 7px;
+}

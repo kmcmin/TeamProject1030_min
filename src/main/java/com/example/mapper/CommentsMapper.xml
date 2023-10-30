@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CommentsMapper">
+<insert id="commentsAdd" parameterType="CommentsDTO">
+		insert into tb_comments
+		(COMMENTS_NO,COMMU_NO,COMMENTS_CONTENT,COMMENTS_CLASS,USER_ID,COMMENTS_REGISTRATION,COMMENTS_STATUS)
+		values (
+		TB_COMMENTS_SEQ.NEXTVAL,
+		#{COMMU_NO,jdbcType=INTEGER},
+		#{COMMENTS_CONTENT, jdbcType=VARCHAR},
+		0,
+		#{USER_ID, jdbcType=VARCHAR},
+		SYSDATE,
+		'Y'
+		)
+</insert>
+
+<select id="commentsList" resultType="CommentsDTO" parameterType="int">
+select COMMENTS_NO,COMMENTS_CONTENT,USER_ID,COMMENTS_REGISTRATION,COMMENTS_STATUS from tb_comments where COMMU_NO=#{COMMU_NO} and COMMENTS_CLASS=0
+
+</select>
+
+<insert id="replyadd" parameterType="CommentsDTO">
+		insert into tb_comments
+		(COMMENTS_NO,COMMU_NO,REPLY_NO,COMMENTS_CONTENT,COMMENTS_CLASS,USER_ID,TAGGED_USER,COMMENTS_REGISTRATION,COMMENTS_STATUS)
+		values (
+		#{COMMENTS_NO},
+		#{COMMU_NO},
+		TB_REPLY_SEQ.NEXTVAL,
+		#{COMMENTS_CONTENT},
+		1,
+		#{USER_ID},
+		#{TAGGED_USER},
+		SYSDATE,
+		'Y'
+		)
+</insert>
+
+<select id="replyList" resultType="CommentsDTO">
+select COMMENTS_NO,COMMENTS_CONTENT,USER_ID,TAGGED_USER,COMMENTS_REGISTRATION,REPLY_NO,COMMENTS_STATUS from tb_comments
+where COMMENTS_CLASS=1 and COMMENTS_NO=#{COMMENTS_NO} and COMMU_NO= #{COMMU_NO}
+</select>
+
+<update id="commentsdel" parameterType="int">
+update tb_comments set COMMENTS_STATUS= 'N' where COMMENTS_NO=#{commentsNO} and COMMENTS_CLASS=0
+</update>
+
+<update id="replydel" parameterType="int">
+update tb_comments set COMMENTS_STATUS= 'N' where REPLY_NO=#{replyNO} and COMMENTS_CLASS=1
+</update>
+
+</mapper>
+
+
+
+
+
+

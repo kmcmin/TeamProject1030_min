@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ChangeUserMapper">
+
+   <select id="userInfo" parameterType="hashmap" resultType="java.util.HashMap">
+		SELECT 
+			USER_NO
+			,USER_NAME
+			,USER_PW
+			,USER_PHONE
+			,USER_STATUS
+			,USER_ID
+			,USER_EMAIL
+			,USER_REF
+			,USER_REGDATE
+			,USER_UPDATE
+			,USER_NICKNAME
+			,USER_TYPE
+			,USER_ADDRESS2
+			,USER_ADDRESS3
+			,USER_POST
+			,USER_ADDRESS1
+			,ROLES
+		FROM TB_USER
+		WHERE USER_NO= #{user_no}
+	</select>
+	
+	<update id="changeInfo" parameterType="hashmap">
+		UPDATE TB_USER
+		SET
+		USER_NICKNAME = #{userNickname},
+		USER_PW = #{password1},
+		USER_NAME = #{userName},
+		USER_ADDRESS1 = #{userAddress1},
+		USER_ADDRESS2 = #{userAddress2},
+		USER_ADDRESS3 = #{userAddress3},
+		USER_POST = #{post},
+		USER_PHONE = #{userPhone},
+		USER_UPDATE = SYSDATE
+		WHERE USER_NO= #{user_no}
+	</update>
+	
+</mapper>
+
+
+
+
+
+

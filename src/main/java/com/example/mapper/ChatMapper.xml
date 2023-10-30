@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ChatMapper">
+
+	<select id="getSelectMyRoom" parameterType="hashmap" resultType="java.util.HashMap">
+		SELECT 
+			ROOMNUMBER,
+			ROOMNAME,
+			ROOMOWNER,
+			ROOMSTATUS,
+			ROOMCREATIONTIME,
+			ROOMDESTORYTIME
+		FROM TB_ROOM
+		WHERE ROOMOWNER = #{roomOwner}
+	</select>
+	
+	<insert id="insertChatingRoom" parameterType="hashmap">
+		INSERT INTO TB_ROOM
+		(
+			ROOMNUMBER,
+			ROOMNAME,
+			ROOMOWNER,
+			ROOMSTATUS,
+			ROOMCREATIONTIME,
+			ROOMDESTORYTIME
+		)
+		VALUES 
+		(
+			TB_ROOM_SEQ.NEXTVAL,
+			#{roomName},
+			#{roomOwner},
+			1,
+			SYSDATE,
+			null
+		)
+	</insert>
+	
+	<insert id="setChatingMsg" parameterType="hashmap">
+		INSERT INTO TB_MESSAGE
+		(
+			MESSAGENUMBER,
+			MESSAGEUSER,
+			MESSAGE,
+			MESSAGESENDER,
+			MESSAGETIME
+		)
+		VALUES 
+		(
+			TB_MESSAGE_SEQ.NEXTVAL,
+			#{messageUser},
+			#{message},
+			#{messageSender},
+			SYSDATE
+		)
+	</insert>
+	
+	<select id="getChatingMsg" parameterType="hashmap" resultType="java.util.HashMap">
+		SELECT 
+			MESSAGENUMBER,
+			MESSAGEUSER,
+			MESSAGE,
+			MESSAGESENDER,
+			MESSAGETIME
+		FROM TB_MESSAGE
+		WHERE MESSAGESENDER = #{messageSender}
+	</select>
+	
+</mapper>
+
+
+
+
+
+
